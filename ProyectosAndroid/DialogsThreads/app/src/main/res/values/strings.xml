@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DialogsThreads</string>
+    <string name="ok">Vale!</string>
+    <string name="cancel">Cancelar</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="msgDialog"> Mensaje de ejemplo</string>
+    <string name="titleDialog"> Mi dialog!</string>
+    
+    <string-array name="toppings">
+        <item>Chocolate</item>
+        <item>Caramelo</item>
+        <item>Helado</item>
+    </string-array>
+</resources>
