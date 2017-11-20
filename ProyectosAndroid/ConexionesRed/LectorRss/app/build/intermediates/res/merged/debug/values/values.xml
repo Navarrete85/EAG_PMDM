@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lector RSS</string>
+    <string name="descargar">Descargar</string>
+    <string name="errordered">¡Error en la descarga!</string>
+    <string name="hello">Hello World, Main!</string>
+    <string name="noitems">Lista vacía</string>
+    <string name="tip">Dirección de la RSS...</string>
+</resources>
