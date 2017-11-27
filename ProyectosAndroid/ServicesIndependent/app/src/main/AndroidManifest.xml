@@ -26,10 +26,11 @@
         <service
             android:name=".Services.MyService"
             android:enabled="true"
-            android:exported="true" />
+            android:stopWithTask="false"/>
         <service
             android:name=".Services.MyIntentService"
-            android:exported="false"></service>
+
+            ></service>
     </application>
 
 </manifest>

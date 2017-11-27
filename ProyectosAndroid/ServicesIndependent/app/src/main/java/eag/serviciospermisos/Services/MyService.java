@@ -32,6 +32,8 @@ public class MyService extends Service {
     public void onDestroy() {
         super.onDestroy();
 
+
+        Toast.makeText(getApplicationContext(), "Servicio detenido", Toast.LENGTH_SHORT).show();
         //TODO 10. Antes de eliminar el servicio, hay que parar el hilo
         if(t.isAlive()) {
             t.interrupt();
@@ -71,17 +73,20 @@ public class MyService extends Service {
             t = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    /// Ejecutamos la tarea costosa...
-                    tareaLarga();
 
-                    //Otra forma equivalente a runOnUiThread()...
-                    Handler handler = new Handler(Looper.getMainLooper());
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(MyService.this, "Tarea larga finalizada!!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    for(int i=0; i<20; i++) {
+                        /// Ejecutamos la tarea costosa...
+                        tareaLarga();
+
+                        //Otra forma equivalente a runOnUiThread()...
+                        Handler handler = new Handler(Looper.getMainLooper());
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getApplicationContext(), "Tarea larga finalizada!!", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                 }
             });
 
@@ -99,9 +104,14 @@ public class MyService extends Service {
     }
 
 
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        super.onTaskRemoved(rootIntent);
+    }
+
     private void tareaLarga(){
         try {
-            Thread.sleep(20000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
